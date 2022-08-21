@@ -11,7 +11,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
