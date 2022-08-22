@@ -1,29 +1,53 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { SafeAreaView, StyleSheet, Text, View, Appearance } from 'react-native';
+import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { styles } from './src/assets/styles';
 import HomeStack from './src/pages/HomeStack';
 import GroupsStack from './src/pages/GroupsStack';
 import ProfileStack from './src/pages/ProfileStack';
 import { Ionicons } from '@expo/vector-icons';
+import { useEffect, useState } from 'react';
 
 
 export default function App() {
 
+  const [scheme, setScheme] = useState(Appearance.getColorScheme());
   const Tab = createBottomTabNavigator();
+
   const lightTheme = {
+    dark: false,
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      primary: '#FF6700'
+
+      primary: '#FF6700',
+      card: 'white',
+      text: 'black'
+
 
     },
   };
 
+  const darkTheme = {
+    dark: true,
+    ...DarkTheme,
+    colors: {
+      ...DarkTheme.colors,
+      primary: '#FF6700',
+      text: 'white'
+    }
+  }
+
+  useEffect(() => {
+    Appearance.addChangeListener(() => {
+      setScheme(Appearance.getColorScheme())
+    })
+  })
+
   return (
-    <NavigationContainer theme={lightTheme}>
-      <StatusBar style="dark" />
+    <NavigationContainer theme={scheme === 'dark' ? darkTheme : lightTheme}>
+      <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
       <Tab.Navigator
 
         screenOptions={{
