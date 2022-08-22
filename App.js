@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { styles } from './src/assets/styles';
 import HomeStack from './src/pages/HomeStack';
 import GroupsStack from './src/pages/GroupsStack';
@@ -16,7 +16,7 @@ export default function App() {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      primary: '#004E98'
+      primary: '#FF6700'
 
     },
   };
