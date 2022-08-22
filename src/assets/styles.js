@@ -11,9 +11,33 @@ const styles = StyleSheet.create({
     },
 
     container: {
-        padding: 24,
 
 
+    },
+
+    groupCard: {
+
+        marginTop: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 20,
+        backgroundColor: 'white',
+        paddingVertical: 25,
+        borderColor: '#C0C0C0',
+        marginBottom: 0
+    },
+
+    cardTitle: {
+        fontSize: 20,
+        fontWeight: '600'
+    },
+
+    cardSubtitle: {
+        textTransform: 'uppercase',
+        fontWeight: '500',
+        color: 'grey',
+        letterSpacing: 1,
+        fontSize: 12
 
     }
 })
