@@ -13,8 +13,18 @@ const styles = StyleSheet.create({
     },
 
     container: {
+        marginHorizontal: 15,
 
+    },
 
+    transactionCard: {
+        marginTop: 8,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 20,
+        paddingVertical: 15,
+        borderColor: '#C0C0C0',
+        marginBottom: 0
     },
 
     groupCard: {
@@ -26,7 +36,51 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         paddingVertical: 25,
         borderColor: '#C0C0C0',
-        marginBottom: 0
+        marginBottom: 0,
+        height: 150
+    },
+
+    tintedButton: {
+        padding: 8,
+        paddingVertical: 4,
+        borderRadius: 12,
+        backgroundColor: 'orange',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginHorizontal: 20
+    },
+
+    tintedButtonText: {
+        fontSize: 15,
+        fontWeight: '500',
+    },
+
+    profileImg: {
+        height: 50,
+        width: 50,
+        resizeMode: 'contain',
+        borderRadius: 360,
+        borderWidth: 2,
+        borderColor: 'white'
+
+
+    },
+
+    groupCardPictures: {
+        flexDirection: 'row',
+        paddingTop: 5
+
+    },
+
+
+    groupDetailsSubtitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        letterSpacing: 2,
+        marginTop: 20,
+        marginBottom: 5,
+        textTransform: 'uppercase',
+        color: 'grey'
     },
 
     cardTitle: {
