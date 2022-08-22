@@ -1,7 +1,8 @@
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './Groups/GroupsScreen'
+import GroupsScreen from './Groups/GroupsScreen'
+import HomeScreen from './Home/HomeScreen';
 import { stackOptions } from '../assets/styles'
 import GroupDetailsScreen from './Groups/GroupDetailsScreen';
 
@@ -11,8 +12,11 @@ export default function GroupsStack() {
 
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Groups" options={{ headerLargeTitle: true }} component={HomeScreen} />
+            <Stack.Screen name="Groups" options={{ headerLargeTitle: true }} component={GroupsScreen} />
             <Stack.Screen name="Details" options={{ title: "Details", headerLargeTitle: true }} component={GroupDetailsScreen} />
+
+            <Stack.Screen name="New Group" options={{ headerTitle: "New Group", presentation: 'modal' }} component={HomeScreen} />
+
 
         </Stack.Navigator>
     )

@@ -1,9 +1,10 @@
-import { View, Text, SafeAreaView, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
 import { styles } from '../../assets/styles'
 import React from 'react'
 import { useTheme } from '@react-navigation/native';
 import GroupCard from '../../components/GroupCard';
 import currency from 'currency.js';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function GroupsScreen({ navigation }) {
 
@@ -14,8 +15,16 @@ export default function GroupsScreen({ navigation }) {
 
     return (
         <SafeAreaView style={styles.safearea}>
-            <ScrollView style={styles.container}>
+            <ScrollView>
 
+                <TouchableOpacity onPress={() => { navigation.navigate('New Group') }}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center', marginVertical: 25 }}>
+                        <View style={[styles.tintedButton, { backgroundColor: colors.primaryTransparent }]}>
+                            <Ionicons name="add" size={32} color={colors.secondary} />
+                            <Text style={[styles.tintedButtonText, { color: colors.secondary }]}>New Group</Text>
+                        </View>
+                    </View>
+                </TouchableOpacity>
 
                 <GroupCard onPress={() => { navigation.navigate('Details', { data: testData }) }} title={testData[0]} participants={testData[1]} balance={testData[2]} />
 
@@ -25,6 +34,6 @@ export default function GroupsScreen({ navigation }) {
 
 
             </ScrollView>
-        </SafeAreaView>
+        </SafeAreaView >
     )
 }
