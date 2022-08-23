@@ -23,7 +23,7 @@ export default function App() {
 
       primary: '#FF6700',
       primaryTransparent: '#FF670090',
-      secondary: '#FF6700',
+      secondary: 'white',
       card: 'white',
       text: 'black'
 
