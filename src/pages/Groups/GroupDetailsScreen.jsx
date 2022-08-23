@@ -2,16 +2,18 @@ import { View, Text, SafeAreaView, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useTheme } from '@react-navigation/native';
 import TransactionCard from '../../components/TransactionCard';
+import TintedButton from '../../components/TintedButton';
+import { Ionicons } from '@expo/vector-icons';
 import { styles } from '../../assets/styles';
 
-export default function GroupDetailsScreen({ route, navigation }) {
+export default function GroupDetailsScreen(props) {
 
-    const { data } = route.params;
+    const { data } = props.route.params;
     const { colors } = useTheme();
 
     useEffect(() => {
 
-        navigation.setOptions({ title: data[0] })
+        props.navigation.setOptions({ title: data[0] })
 
     })
 
@@ -23,6 +25,14 @@ export default function GroupDetailsScreen({ route, navigation }) {
     return (
         <SafeAreaView style={styles.safearea}>
             <ScrollView>
+
+                <View style={[styles.container, { flexDirection: 'row', justifyContent: 'center', marginHorizontal: 30 }]}>
+                    <TintedButton onPress={() => { props.navigation.navigate('New Group') }}>
+                        <Ionicons name="ios-cash" size={28} color={colors.secondary} />
+                        <Text style={[styles.tintedButtonText, { color: colors.secondary, marginLeft: 4 }]}>Add Transaction</Text>
+                    </TintedButton>
+                </View>
+
                 <View style={styles.container}>
                     <Text style={styles.groupDetailsSubtitle}>Today</Text>
                 </View>
