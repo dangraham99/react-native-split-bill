@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     profileImg: {
         height: 45,
         width: 45,
-        resizeMode: 'contain',
+        resizeMode: 'cover',
         borderRadius: 360,
         borderWidth: 4,
 
