@@ -46,13 +46,12 @@ const styles = StyleSheet.create({
     },
 
     tintedButton: {
-        padding: 8,
-        paddingVertical: 4,
+        paddingHorizontal: 12,
         borderRadius: 12,
         backgroundColor: 'orange',
         flexDirection: 'row',
         alignItems: 'center',
-        marginHorizontal: 20
+        height: 45
     },
 
     tintedButtonText: {
@@ -61,8 +60,8 @@ const styles = StyleSheet.create({
     },
 
     profileImg: {
-        height: 45,
-        width: 45,
+        height: 50,
+        width: 50,
         resizeMode: 'cover',
         borderRadius: 360,
         borderWidth: 4,
