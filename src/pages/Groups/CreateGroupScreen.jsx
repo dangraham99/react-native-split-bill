@@ -4,12 +4,13 @@ import React, { useState, useEffect } from 'react'
 import { styles } from '../../assets/styles'
 import { Picker } from '@react-native-picker/picker';
 import { Ionicons } from '@expo/vector-icons';
+import TintedButton from '../../components/TintedButton';
 
 export default function CreateGroupScreen({ navigation }) {
 
     const { colors } = useTheme()
 
-    const [groupName, setGroupName] = useState("New Group")
+    const [groupName, setGroupName] = useState()
 
     useEffect(() => {
         navigation.setOptions({ headerTitle: groupName })
@@ -19,16 +20,15 @@ export default function CreateGroupScreen({ navigation }) {
 
     return (
         <SafeAreaView style={styles.safearea}>
-            <View style={{ marginTop: 20 }}>
-                <View style={[styles.container, { marginBottom: 15 }]}>
-                    <Text style={styles.cardSubtitle}>Group Info</Text>
-                    <TextInput placeholderTextColor={'grey'} onChangeText={(value) => { setGroupName(value) }} placeholder='Group name' style={[styles.textInput, { color: colors.text, backgroundColor: colors.card }]} />
+            <View style={[styles.container, { marginTop: 20 }]}>
+                <View style={{ marginBottom: 15 }}>
+                    <Text style={styles.groupDetailsSubtitle}>Group Info</Text>
+                    <TextInput placeholderTextColor={'grey'} onChangeText={(value) => { setGroupName(value) }} placeholder='Group name' style={[styles.textInput, { color: colors.text, backgroundColor: colors.card, fontSize: 16 }]} />
                 </View>
-                <View style={[styles.container, { marginBottom: 15 }]}>
-                    <Text style={styles.cardSubtitle}>Participants</Text>
-                    <Text style={{ color: colors.text, marginTop: 5, fontSize: 13 }}>Invite people to join the group now. You can add more later.</Text>
+                <View style={[{ marginBottom: 15 }]}>
+                    <Text style={styles.groupDetailsSubtitle}>Participants</Text>
                 </View>
-                <View style={[styles.transactionCard, { backgroundColor: colors.card }]}>
+                <View style={[styles.transactionCard, { backgroundColor: colors.card, borderRadius: 12 }]}>
                     <View>
                         <Image style={[styles.profileImg, { borderColor: colors.card }]} source={require(`../../assets/placeholders/portrait-6.jpg`)} />
                     </View>
@@ -44,6 +44,11 @@ export default function CreateGroupScreen({ navigation }) {
                         </TouchableOpacity>
                     </View>
                 </View>
+
+                <TintedButton onPress={() => { props.navigation.navigate('New Group') }}>
+                    <Ionicons name="ios-person-add" size={28} color={colors.secondary} />
+                    <Text style={[styles.tintedButtonText, { color: colors.secondary, marginLeft: 4 }]}>Add People</Text>
+                </TintedButton>
 
             </View>
         </SafeAreaView >
