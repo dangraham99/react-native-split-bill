@@ -17,7 +17,7 @@ export default function GroupsScreen({ navigation }) {
         <SafeAreaView style={styles.safearea}>
             <ScrollView>
 
-                <TouchableOpacity onPress={() => { navigation.navigate('New Group') }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('NewGroup') }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'center', marginVertical: 25 }}>
                         <View style={[styles.tintedButton, { backgroundColor: colors.primaryTransparent }]}>
                             <Ionicons name="add" size={32} color={colors.secondary} />
