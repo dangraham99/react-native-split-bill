@@ -93,8 +93,16 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         color: 'grey',
         letterSpacing: 1,
-        fontSize: 12
+        fontSize: 12,
 
+    },
+
+    textInput: {
+
+        marginVertical: 10,
+        borderRadius: 5,
+        paddingVertical: 12,
+        paddingHorizontal: 15
     }
 })
 
