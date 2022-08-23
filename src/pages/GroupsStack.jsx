@@ -22,6 +22,7 @@ export default function GroupsStack({ navigation }) {
             <Stack.Screen name="Details" options={{ headerTitle: "Details", headerLargeTitle: true }} component={GroupDetailsScreen} />
             <Stack.Screen name="NewGroup" options={{
                 headerTitle: "New Group",
+                headerTitleAlign: 'center',
                 presentation: "modal",
                 headerLeft: () => (
                     <Button
