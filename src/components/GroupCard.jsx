@@ -28,18 +28,21 @@ export default function GroupCard(props) {
                         {props.participants > 4 && <View style={[styles.profileImg, { position: 'absolute', left: 100, backgroundColor: colors.primary, justifyContent: 'center' }]}><Text style={{ alignSelf: 'center', fontWeight: 'bold', fontSize: 18, letterSpacing: 2, color: 'white' }}>+{props.participants - 4}</Text></View>}
                     </View>
                 </View>
-                <View style={{ flex: 2, alignItems: 'flex-end' }}>
+                <View style={{ flex: 4, alignItems: 'flex-end' }}>
                     <Text style={styles.cardSubtitle}>{props.balance < 0 ? "You owe" : "You're owed"}</Text>
                     <Text style={[styles.cardTitle, {
                         color: props.balance < 0 ? 'red' : colors.text
                     }]}>{currency(props.balance, { fromCents: true, symbol: "£" }).format()}</Text>
                 </View>
                 <View style={{
-                    flex: 1,
+
                     justifyContent: 'center',
-                    alignItems: 'flex-end'
+                    alignItems: 'flex-end',
+                    marginLeft: 10
+
+
                 }}>
-                    <Ionicons name="ios-chevron-forward" size={32} color={'grey'} />
+                    <Ionicons name="ios-chevron-forward" size={28} color={'grey'} />
                 </View>
             </View>
         </Pressable>
