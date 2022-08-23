@@ -25,7 +25,7 @@ export default function GroupCard(props) {
                         <Image style={[styles.profileImg, { position: 'absolute', left: 25 }]} source={require(`../assets/placeholders/portrait-2.jpg`)} />
                         <Image style={[styles.profileImg, { position: 'absolute', left: 50 }]} source={require(`../assets/placeholders/portrait-3.jpg`)} />
                         <Image style={[styles.profileImg, { position: 'absolute', left: 75 }]} source={require(`../assets/placeholders/portrait-4.jpg`)} />
-                        {props.participants > 4 && <View style={[styles.profileImg, { position: 'absolute', left: 100, backgroundColor: colors.primary, justifyContent: 'center' }]}><Text style={{ alignSelf: 'center', fontWeight: 'bold', fontSize: 18, letterSpacing: 2, color: 'white' }}>+{props.participants - 4}</Text></View>}
+                        {props.participants > 4 && <View style={[styles.profileImg, { position: 'absolute', left: 100, backgroundColor: colors.primaryTransparent, justifyContent: 'center' }]}><Text style={{ alignSelf: 'center', fontWeight: 'bold', fontSize: 18, letterSpacing: 2, color: 'white' }}>+{props.participants - 4}</Text></View>}
                     </View>
                 </View>
                 <View style={{ flex: 4, alignItems: 'flex-end' }}>
