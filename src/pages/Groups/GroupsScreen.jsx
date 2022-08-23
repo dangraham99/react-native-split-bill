@@ -12,6 +12,7 @@ export default function GroupsScreen({ navigation }) {
 
     const testData = ["Friday night", 3, 400]
     const testData2 = ["John's Birthday", 8, -732]
+    const testData3 = ["Christmas Party", 20, 2032]
 
     return (
         <SafeAreaView style={styles.safearea}>
@@ -27,11 +28,8 @@ export default function GroupsScreen({ navigation }) {
                 </TouchableOpacity>
 
                 <GroupCard onPress={() => { navigation.navigate('Details', { data: testData }) }} title={testData[0]} participants={testData[1]} balance={testData[2]} />
-
-
-
                 <GroupCard onPress={() => { navigation.navigate('Details', { data: testData2 }) }} title={testData2[0]} participants={testData2[1]} balance={testData2[2]} />
-
+                <GroupCard onPress={() => { navigation.navigate('Details', { data: testData3 }) }} title={testData3[0]} participants={testData3[1]} balance={testData3[2]} />
 
             </ScrollView>
         </SafeAreaView >
