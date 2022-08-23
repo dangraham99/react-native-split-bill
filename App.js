@@ -21,8 +21,8 @@ export default function App() {
     colors: {
       ...DefaultTheme.colors,
 
-      primary: '#FF6700',
-      primaryTransparent: '#FF670090',
+      primary: '#02c764',
+      primaryTransparent: '#02c76490',
       secondary: 'white',
       card: 'white',
       text: 'black'
@@ -36,9 +36,9 @@ export default function App() {
     ...DarkTheme,
     colors: {
       ...DarkTheme.colors,
-      primary: '#FF6700',
-      primaryTransparent: '#FF670050',
-      secondary: '#FF8533',
+      primary: '#02c764',
+      primaryTransparent: '#02c76450',
+      secondary: '#33ffa3',
       text: 'white'
     }
   }
