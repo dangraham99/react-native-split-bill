@@ -16,7 +16,7 @@ export default function TransactionCard() {
     return (
         <View style={[styles.transactionCard, { backgroundColor: colors.card }]}>
             <View>
-                <Image style={styles.profileImg} source={require(`../assets/placeholders/portrait-7.jpg`)} />
+                <Image style={[styles.profileImg, { borderColor: colors.card }]} source={require(`../assets/placeholders/portrait-7.jpg`)} />
             </View>
             <View style={{ flex: 2, paddingLeft: 10 }}>
 
