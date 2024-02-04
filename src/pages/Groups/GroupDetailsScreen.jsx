@@ -28,7 +28,7 @@ export default function GroupDetailsScreen(props) {
 
                 <View style={[styles.container, { flexDirection: 'row', justifyContent: 'center', marginHorizontal: 30 }]}>
                     <TintedButton onPress={() => { props.navigation.navigate('New Group') }}>
-                        <Ionicons name="ios-cash" size={28} color={colors.secondary} />
+                        <Ionicons name="cash" size={28} color={colors.secondary} />
                         <Text style={[styles.tintedButtonText, { color: colors.secondary, marginLeft: 4 }]}>Add Transaction</Text>
                     </TintedButton>
                 </View>

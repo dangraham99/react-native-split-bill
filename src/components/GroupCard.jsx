@@ -42,7 +42,7 @@ export default function GroupCard(props) {
 
 
                 }}>
-                    <Ionicons name="ios-chevron-forward" size={28} color={'grey'} />
+                    <Ionicons name="chevron-forward" size={28} color={'grey'} />
                 </View>
             </View>
         </Pressable>

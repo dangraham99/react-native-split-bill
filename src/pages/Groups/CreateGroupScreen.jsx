@@ -40,13 +40,13 @@ export default function CreateGroupScreen({ navigation }) {
                     </View>
                     <View style={{ alignItems: 'flex-end', justifyContent: 'center', flex: 1 }}>
                         <TouchableOpacity>
-                            <Ionicons name="ios-information-circle-outline" size={28} color={colors.primary} />
+                            <Ionicons name="information-circle-outline" size={28} color={colors.primary} />
                         </TouchableOpacity>
                     </View>
                 </View>
 
                 <TintedButton onPress={() => { props.navigation.navigate('New Group') }}>
-                    <Ionicons name="ios-person-add" size={28} color={colors.secondary} />
+                    <Ionicons name="person-add" size={18} color={colors.secondary} />
                     <Text style={[styles.tintedButtonText, { color: colors.secondary, marginLeft: 4 }]}>Add People</Text>
                 </TintedButton>
 

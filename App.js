@@ -65,7 +65,7 @@ export default function App() {
           options={{
             tabBarLabel: "Home",
             tabBarIcon: ({ size, color }) => (
-              <Ionicons name="ios-home" size={size} color={color} />
+              <Ionicons name="home" size={size} color={color} />
             )
           }}
 
@@ -78,7 +78,7 @@ export default function App() {
           options={{
             tabBarLabel: "Groups",
             tabBarIcon: ({ size, color }) => (
-              <Ionicons name="ios-people" size={size} color={color} />
+              <Ionicons name="people" size={size} color={color} />
             )
           }}
 
@@ -90,7 +90,7 @@ export default function App() {
           options={{
             tabBarLabel: "Profile",
             tabBarIcon: ({ size, color }) => (
-              <Ionicons name="ios-person" size={size} color={color} />
+              <Ionicons name="person" size={size} color={color} />
             )
           }}
 
