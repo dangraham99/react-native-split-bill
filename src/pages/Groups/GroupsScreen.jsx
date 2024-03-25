@@ -19,11 +19,6 @@ export default function GroupsScreen(props) {
         <SafeAreaView style={styles.safearea}>
             <ScrollView>
 
-                <TintedButton onPress={() => { props.navigation.navigate('New Group') }}>
-                    <Ionicons name="add" size={32} color={colors.secondary} />
-                    <Text style={[styles.tintedButtonText, { color: colors.secondary }]}>New Group</Text>
-                </TintedButton>
-
                 <GroupCard onPress={() => { props.navigation.navigate('Details', { data: testData }) }} title={testData[0]} participants={testData[1]} balance={testData[2]} />
                 <GroupCard onPress={() => { props.navigation.navigate('Details', { data: testData2 }) }} title={testData2[0]} participants={testData2[1]} balance={testData2[2]} />
                 <GroupCard onPress={() => { props.navigation.navigate('Details', { data: testData3 }) }} title={testData3[0]} participants={testData3[1]} balance={testData3[2]} />

@@ -1,4 +1,4 @@
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from '@react-navigation/native';
@@ -8,6 +8,7 @@ import { stackOptions } from '../assets/styles'
 import GroupDetailsScreen from './Groups/GroupDetailsScreen';
 import CreateGroupScreen from './Groups/CreateGroupScreen';
 import { StackActions } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function GroupsStack({ navigation }) {
 
@@ -20,7 +21,17 @@ export default function GroupsStack({ navigation }) {
 
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Groups" options={{ headerLargeTitle: true }} component={GroupsScreen} />
+            <Stack.Screen name="Groups" options={{
+
+                headerTitle: "Groups",
+
+                headerLargeTitle: false,
+                headerRight: () => (
+                    <TouchableOpacity>
+                        <Ionicons name="add-circle" size={30} color={colors.primary} />
+                    </TouchableOpacity>
+                ),
+            }} component={GroupsScreen} />
             <Stack.Screen name="Details" options={{
                 headerTitle: "Details", headerLargeTitle: true, headerRight: () => (
                     <Button
