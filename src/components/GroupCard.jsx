@@ -23,7 +23,8 @@ export default function GroupCard({ group, onPress }) {
                             <Image
                                 key={index}
                                 style={[styles.profileImg, { position: 'absolute', left: index * 25, borderColor: colors.card }]}
-                                source={{ uri: `../assets/placeholders/portrait-${index + 1}.jpg` }} // Correct dynamic image source
+                                source={{uri: user.user.avatar}} // Correct dynamic image source
+                               
                             />
                         ))}
                         {group.users.length > 4 && (
