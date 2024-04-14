@@ -1,50 +1,50 @@
-import { View, Text, Pressable, Image } from 'react-native'
-import React from 'react'
-import { styles } from '../assets/styles'
+import { View, Text, Pressable, Image } from 'react-native';
+import React from 'react';
+import { styles } from '../assets/styles';
 import { Ionicons } from '@expo/vector-icons';
 import currency from 'currency.js';
 import { useTheme } from '@react-navigation/native';
 
-export default function GroupCard(props) {
-
-    const { colors } = useTheme()
+export default function GroupCard({ group, onPress }) {
+    const { colors } = useTheme();
 
     return (
-        <Pressable
-            onPress={() => {
-                props.onPress()
-            }
-            }>
+        <Pressable onPress={onPress}>
             <View style={[styles.groupCard, { backgroundColor: colors.card }]}>
                 <View style={{ flex: 4 }}>
-                    <Text style={styles.cardSubtitle}>{(props.participants > 1 || props.participants == 0) ? `${props.participants} participants` : `${props.participants} participants` }</Text>
-                    <Text numberOfLines={1} style={[styles.cardTitle, { color: colors.text }]}>{props.title}</Text>
+                    <Text style={styles.cardSubtitle}>
+                        {group.users.length > 1 || group.users.length === 0 ? `${group.users.length} participants` : `${group.users.length} participant`}
+                    </Text>
+                    <Text numberOfLines={1} style={[styles.cardTitle, { color: colors.text }]}>
+                        {group.title}
+                    </Text>
                     <View style={[styles.groupCardPictures, { marginTop: 10 }]}>
-
-                        <Image style={[styles.profileImg, { position: 'absolute', borderColor: colors.card }]} source={require(`../assets/placeholders/portrait-1.jpg`)} />
-                        <Image style={[styles.profileImg, { position: 'absolute', left: 25, borderColor: colors.card }]} source={require(`../assets/placeholders/portrait-2.jpg`)} />
-                        <Image style={[styles.profileImg, { position: 'absolute', left: 50, borderColor: colors.card }]} source={require(`../assets/placeholders/portrait-3.jpg`)} />
-                        <Image style={[styles.profileImg, { position: 'absolute', left: 75, borderColor: colors.card }]} source={require(`../assets/placeholders/portrait-4.jpg`)} />
-                        {props.participants > 4 && <View style={[styles.profileImg, { position: 'absolute', left: 100, backgroundColor: colors.primaryTransparent, justifyContent: 'center', borderColor: colors.card }]}><Text style={{ alignSelf: 'center', fontWeight: 'bold', fontSize: 14, letterSpacing: 2, color: 'white' }}>+{props.participants - 4}</Text></View>}
+                        {group.users.slice(0, 4).map((user, index) => (
+                            <Image
+                                key={index}
+                                style={[styles.profileImg, { position: 'absolute', left: index * 25, borderColor: colors.card }]}
+                                source={{ uri: `../assets/placeholders/portrait-${index + 1}.jpg` }} // Correct dynamic image source
+                            />
+                        ))}
+                        {group.users.length > 4 && (
+                            <View style={[styles.profileImg, { position: 'absolute', left: 100, backgroundColor: colors.primaryTransparent, justifyContent: 'center', borderColor: colors.card }]}>
+                                <Text style={{ alignSelf: 'center', fontWeight: 'bold', fontSize: 14, letterSpacing: 2, color: 'white' }}>+{group.users.length - 4}</Text>
+                            </View>
+                        )}
                     </View>
                 </View>
                 <View style={{ flex: 4, alignItems: 'flex-end' }}>
-                    <Text style={styles.cardSubtitle}>{props.balance < 0 ? "You owe" : "You're owed"}</Text>
-                    <Text style={[styles.cardTitle, {
-                        color: props.balance < 0 ? 'red' : colors.text
-                    }]}>{currency(props.balance, { fromCents: true, symbol: "£" }).format()}</Text>
+                    <Text style={styles.cardSubtitle}>
+                        {group.balancesInCents < 0 ? "You owe" : "You're owed"}
+                    </Text>
+                    <Text style={[styles.cardTitle, { color: group.balancesInCents < 0 ? 'red' : colors.text }]}>
+                        {currency(group.balancesInCents, { fromCents: true, symbol: "£" }).format()}
+                    </Text>
                 </View>
-                <View style={{
-
-                    justifyContent: 'center',
-                    alignItems: 'flex-end',
-                    marginLeft: 10
-
-
-                }}>
+                <View style={{ justifyContent: 'center', alignItems: 'flex-end', marginLeft: 10 }}>
                     <Ionicons name="chevron-forward" size={28} color={'grey'} />
                 </View>
             </View>
         </Pressable>
-    )
+    );
 }
