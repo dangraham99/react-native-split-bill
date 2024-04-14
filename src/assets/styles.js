@@ -18,8 +18,15 @@ const styles = StyleSheet.create({
     },
 
     container: {
-        marginHorizontal: 15,
+        paddingTop: 20,
 
+    },
+
+    centerContainer: {
+        flex: 1,
+        alignItems: 'center',  
+        justifyContent: 'center' 
+          
     },
 
     transactionCard: {
@@ -85,6 +92,12 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         textTransform: 'uppercase',
         color: 'grey'
+    },
+
+    pageTitle: {
+        fontSize: 24,
+        fontWeight: '700',
+        textAlign: 'center'
     },
 
     cardTitle: {
