@@ -3,7 +3,7 @@ import { SafeAreaView, ScrollView, RefreshControl } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 import { styles } from '../../assets/styles';
 import GroupCard from '../../components/GroupCard';
-import { fetchData } from '../../utils/useData'; // Import fetchData function
+import { fetchData } from '../../utils/fetchData'; // Import fetchData function
 
 export default function GroupsScreen(props) {
     const { colors } = useTheme();
@@ -32,6 +32,7 @@ export default function GroupsScreen(props) {
     return (
         <SafeAreaView style={styles.safearea}>
             <ScrollView
+                style={styles.container}
                 refreshControl={
                     <RefreshControl
                         refreshing={refreshing}
