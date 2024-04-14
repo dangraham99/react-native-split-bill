@@ -17,7 +17,7 @@ export default function GroupCard(props) {
             }>
             <View style={[styles.groupCard, { backgroundColor: colors.card }]}>
                 <View style={{ flex: 4 }}>
-                    <Text style={styles.cardSubtitle}>{`${props.participants} participants`}</Text>
+                    <Text style={styles.cardSubtitle}>{(props.participants > 1 || props.participants == 0) ? `${props.participants} participants` : `${props.participants} participants` }</Text>
                     <Text numberOfLines={1} style={[styles.cardTitle, { color: colors.text }]}>{props.title}</Text>
                     <View style={[styles.groupCardPictures, { marginTop: 10 }]}>
 
