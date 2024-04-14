@@ -1,24 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 
-function useData(url) {
-    const [data, setData] = useState(null);
-    useEffect(() => {
-      if (url) {
-        let ignore = false;
-        fetch(url)
-          .then((response) => response.json())
-          .then(json => {
-            if (!ignore) {
-              setData(json);
-            }
-          });
-        return () => {
-          ignore = true;
-        };
-      }
-    }, [url]);
-  
-    return data;
-  }
-
-  export {useData}
+export async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+      console.log(error)
+        throw new Error('Error fetching data:', error.message);
+    }
+}
