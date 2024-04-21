@@ -9,14 +9,14 @@ import { fetchData } from '../../utils/fetchData';
 
 export default function GroupDetailsScreen(props) {
 
-    const [ data, setData ] = useState({})
+    const [ group, setGroup ] = useState({})
     const { colors } = useTheme();
     const [refreshing, setRefreshing] = useState(false)
 
     const fetchGroupData = async () => {
         try {
             const data = await fetchData('http://localhost:3000/groups/' + props.route.params.groupId); //use the ID which was passed to the route
-            setData(data);
+            setGroup(data);
         
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -25,11 +25,11 @@ export default function GroupDetailsScreen(props) {
 
     useEffect(() => {  
         //only update the title once we get it && if it doesn't match the title that we passed to this route
-        if (data?.title && data.title !== props.route.params.groupTitle) { 
-            props.navigation.setOptions({ title:  data.title})
+        if (group?.title && group.title !== props.route.params.groupTitle) { 
+            props.navigation.setOptions({ title:  gorup.title})
         }
 
-    }, [data])
+    }, [group])
 
     useEffect(() => {
         props.navigation.setOptions({ title:  props.route.params.groupTitle}) //set the group title initially using data that was passed (this will be reset once we get the group name in the request);
@@ -44,6 +44,20 @@ export default function GroupDetailsScreen(props) {
     };
 
 
+    const parseDate = (dateStr) => {
+
+        const date = new Date(dateStr)
+
+        const options = {
+            weekday: 'long',  // Full name of the day
+            year: 'numeric',  // Four digit year
+            month: 'long',    // Full name of the month
+            day: '2-digit'    // Day of the month with leading zero if necessary
+        };
+    
+        // Convert the date to the specified format in the current locale
+        return date.toLocaleDateString('en-GB', options);
+    }
 
 
     return (
@@ -58,26 +72,34 @@ export default function GroupDetailsScreen(props) {
                     />
                 }>
 
-                <View style={[styles.container, { flexDirection: 'row', justifyContent: 'center', marginHorizontal: 30 }]}>
-                    <TintedButton onPress={() => { props.navigation.navigate('New Group') }}>
-                        <Ionicons name="cash" size={28} color={colors.secondary} />
-                        <Text style={[styles.tintedButtonText, { color: colors.secondary, marginLeft: 4 }]}>Add Transaction</Text>
-                    </TintedButton>
-                </View>
 
-                <View style={styles.container}>
-                    <Text style={styles.groupDetailsSubtitle}>Today</Text>
-                </View>
-                {data.transactions && data?.transactions.map((transaction, i) => (
-                    <TransactionCard key={i} transaction={transaction} />
-                ))}
                 
-                <View style={styles.container}>
-                    <Text style={styles.groupDetailsSubtitle}>Yesterday</Text>
-                </View>
-                <View style={styles.container}>
-                    <Text style={styles.groupDetailsSubtitle}>Saturday, 20 August 2022</Text>
-                </View>
+                
+                {group.transactions && group.transactions.map((transaction, i) => {
+                        //TODO: Refactor this out of the UI logic
+
+                        let showDate;
+
+                        // Convert both current and previous dates to the same format
+                        // for accurate comparison (i.e. same date, not same time)
+                        const currentDate = parseDate(transaction.createdAt);
+                        const prevDate = i > 0 ? parseDate(group.transactions[i - 1].createdAt) : '';
+
+                        // Check if the current transaction is the first one or
+                        // if its date is different from the previous transaction's date
+                        showDate = i === 0 || currentDate !== prevDate;
+
+                        return (
+                            <View key={transaction.id} style={styles.cardContainer}>
+                            {showDate && (
+                                <Text style={styles.groupDetailsSubtitle}>{currentDate}</Text>
+                            )}
+                            <TransactionCard transaction={transaction} />
+                            </View>
+                        );
+                })}
+                
+       
             </ScrollView>
         </SafeAreaView>
     )
