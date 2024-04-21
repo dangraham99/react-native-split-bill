@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
 
     container: {
         paddingTop: 20,
+        paddingHorizontal: 10
 
     },
 
