@@ -42,7 +42,7 @@ export default function GroupsScreen(props) {
                 }
             >
                     {groups.map((group, i) => (
-                    <GroupCard key={i} group={group} />
+                    <GroupCard key={i} group={group} onPress={() => { props.navigation.navigate('Details', {groupId: group.id, groupTitle: group.title}) }}/>
                 ))}
             </ScrollView>
         </SafeAreaView>
