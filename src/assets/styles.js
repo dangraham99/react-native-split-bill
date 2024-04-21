@@ -17,9 +17,14 @@ const styles = StyleSheet.create({
         height: '100%'
     },
 
+    cardContainer: {
+        paddingTop: 5,
+        paddingHorizontal: 0
+    },
+
     container: {
-        paddingTop: 20,
-        paddingHorizontal: 10
+        paddingTop: 10,
+        paddingHorizontal: 20
 
     },
 
@@ -86,6 +91,7 @@ const styles = StyleSheet.create({
 
 
     groupDetailsSubtitle: {
+        paddingHorizontal: 20,
         fontSize: 16,
         fontWeight: 'bold',
         letterSpacing: 2,
