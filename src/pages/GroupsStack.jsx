@@ -32,15 +32,17 @@ export default function GroupsStack({ navigation }) {
                     </TouchableOpacity>
                 ),
             }} component={GroupsScreen} />
-            <Stack.Screen name="Details" options={{
-                headerTitle: "Details", headerLargeTitle: true, headerRight: () => (
+            <Stack.Screen name="Details" options={({route}) =>  ({
+                headerTitle: route.params.name, 
+                headerLargeTitle: true, 
+                headerRight: () => (
                     <Button
                         onPress={() => { navigation.navigate('Edit Group') }}
                         title="Edit Group"
                         color={colors.primaryTransparent}
                     />
                 ),
-            }} component={GroupDetailsScreen} />
+            })} component={GroupDetailsScreen} />
             <Stack.Screen name="New Group" options={{
                 headerTitle: "New Group",
                 headerTitleAlign: 'center',
