@@ -13,7 +13,6 @@ export default function TransactionCard(props) {
 
 
 
-
     return ( 
         <View style={[styles.transactionCard, { backgroundColor: colors.card }]}>
             <View>
