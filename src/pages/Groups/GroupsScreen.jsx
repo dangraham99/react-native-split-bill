@@ -32,7 +32,6 @@ export default function GroupsScreen(props) {
     return (
         <SafeAreaView style={styles.safearea}>
             <ScrollView
-                style={styles.container}
                 refreshControl={
                     <RefreshControl
                         refreshing={refreshing}
