@@ -36,11 +36,15 @@ export default function GroupsStack({ navigation }) {
                 headerTitle: route.params.name, 
                 headerLargeTitle: true, 
                 headerRight: () => (
-                    <Button
-                        onPress={() => { navigation.navigate('Edit Group') }}
-                        title="Edit Group"
-                        color={colors.primaryTransparent}
-                    />
+                    <View style={{flexDirection:"row", justifyContent: 'space-between', alignItems: 'center', gap: 12}}>
+
+                        <TouchableOpacity>
+                            <Ionicons name="add-circle-outline" size={30} color={colors.primary} />
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Ionicons name="information-circle-outline" size={30} color={colors.primary} />
+                        </TouchableOpacity>
+                    </View>
                 ),
             })} component={GroupDetailsScreen} />
             <Stack.Screen name="New Group" options={{
